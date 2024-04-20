@@ -16,7 +16,7 @@ model_name=PatchTST
 root_path_name=./dataset/
 data_path_name=weather.csv
 model_id_name=weather
-data_name=weather
+data_name=custom
 
 random_seed=2021
 for pred_len in 24 96 192 336 720
