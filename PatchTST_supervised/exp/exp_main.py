@@ -363,5 +363,5 @@ class Exp_Main(Exp_Basic):
             os.makedirs(folder_path)
 
         np.save(folder_path + 'real_prediction.npy', preds)
-
+        print('mse:{}, mae:{}, rse:{}'.format(mse, mae, rse))
         return
