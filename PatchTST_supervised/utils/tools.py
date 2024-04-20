@@ -2,6 +2,7 @@ import numpy as np
 import torch
 import matplotlib.pyplot as plt
 import time
+from sktime.utils.plotting import plot_series
 
 plt.switch_backend('agg')
 
@@ -98,6 +99,40 @@ def visual(true, preds=None, name='./pic/test.pdf'):
         plt.plot(preds, label='Prediction', linewidth=2)
     plt.legend()
     plt.savefig(name, bbox_inches='tight')
+
+
+
+def visual3(true, preds=None, name='./pic/test_plot.pdf'):
+    """
+    Results visualization using sktime's plot_series function.
+    This function plots and saves the time series comparison between the true values and predictions.
+    
+    Parameters:
+    - true: time series of true values; should be formatted as a pandas Series or compatible format.
+    - preds: (optional) time series of predicted values; should also be formatted similarly.
+    - name: path and filename where the plot will be saved.
+    """
+    # Set up the plot
+    fig, ax = plt.subplots(figsize=(10, 6))  # You can adjust the size as needed
+
+    # Plotting the true values
+    plot_series(true, ax=ax, label='Ground Truth', linewidth=2, color='blue')
+
+    # Conditionally plotting the predicted values
+    if preds is not None:
+        plot_series(preds, ax=ax, label='Prediction', linewidth=2, color='red')
+
+    # Adding legend to the plot
+    plt.legend()
+
+    # Saving the plot to the specified file
+    plt.savefig(name, bbox_inches='tight')
+    plt.close(fig)  # Close the plot figure to free up memory
+
+# Example usage:
+# Assuming 'true_values' and 'predicted_values' are pandas Series with time indices
+# visual3(true_values, predicted_values, './path/to/save/your_plot.pdf')
+    
 
 def test_params_flop(model,x_shape):
     """
