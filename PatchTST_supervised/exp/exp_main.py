@@ -3,7 +3,6 @@ from exp.exp_basic import Exp_Basic
 from models import Informer, Autoformer, Transformer, DLinear, Linear, NLinear, PatchTST
 from utils.tools import EarlyStopping, adjust_learning_rate, visual, test_params_flop
 from utils.metrics import metric
-from sktime.utils.plotting import plot_series
 
 import numpy as np
 import torch
@@ -364,8 +363,4 @@ class Exp_Main(Exp_Basic):
             os.makedirs(folder_path)
 
         np.save(folder_path + 'real_prediction.npy', preds)
-        fig, ax = plot_series(batch_x[0], true[0], pred[0], labels=["batch_x", "true", "pred"])
-        plt.show()
-        print('mse:{}, mae:{}, rse:{}'.format(mse, mae, rse))
-        plot_series(batch_x, true, pred, labels=["batch_x", "true", "pred"]);
         return
