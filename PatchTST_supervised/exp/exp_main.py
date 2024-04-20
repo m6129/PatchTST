@@ -364,4 +364,5 @@ class Exp_Main(Exp_Basic):
 
         np.save(folder_path + 'real_prediction.npy', preds)
         print('mse:{}, mae:{}, rse:{}'.format(mse, mae, rse))
+        plot_series(batch_x, true, pred, labels=["batch_x", "true", "pred"])
         return
