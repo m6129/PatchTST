@@ -14,8 +14,8 @@ seq_len=336
 model_name=PatchTST
 
 root_path_name=./dataset/
-data_path_name=exchanger_rate.csv
-model_id_name=exchanger_rate
+data_path_name=exchange_rate.csv
+model_id_name=exchange_rate
 data_name=custom
 
 random_seed=2021
