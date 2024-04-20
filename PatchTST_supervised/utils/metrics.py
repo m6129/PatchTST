@@ -40,5 +40,7 @@ def metric(pred, true):
     mspe = MSPE(pred, true)
     rse = RSE(pred, true)
     corr = CORR(pred, true)
+    print(mae)
+    print(mse)
 
     return mae, mse, rmse, mape, mspe, rse, corr
