@@ -16,7 +16,7 @@ model_name=PatchTST
 root_path_name=./dataset/
 data_path_name=illness.csv
 model_id_name=illness
-data_name=illness
+data_name=custom
 
 random_seed=2021
 for pred_len in 24 36 48 60
