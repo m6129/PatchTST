@@ -16,7 +16,7 @@ model_name=PatchTST
 root_path_name=./dataset/
 data_path_name=exchanger_rate.csv
 model_id_name=exchanger_rate
-data_name=exchanger_rate
+data_name=custom
 
 random_seed=2021
 for pred_len in 24 96 192 336 720
