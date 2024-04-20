@@ -127,7 +127,6 @@ def visual3(true, preds=None, name='./pic/test_plot.pdf'):
 
     # Saving the plot to the specified file
     plt.savefig(name, bbox_inches='tight')
-    plt.close(fig)  # Close the plot figure to free up memory
 
 # Example usage:
 # Assuming 'true_values' and 'predicted_values' are pandas Series with time indices
