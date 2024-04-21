@@ -298,16 +298,22 @@ class Exp_Main(Exp_Basic):
         if not os.path.exists(folder_path):
             os.makedirs(folder_path)
 
-        for forecast_x in (24,96,192,336,720):
-            mae, mse, rmse, mape, mspe, rse, corr = metric(preds, trues)
-            mae, mse, rmse, mape, mspe, rse, corr = metric(preds[:forecast_x], trues[:forecast_x])
-            print('mse_{forecast_x}:{}, mae_{forecast_x}:'.format(mse, mae))
-            f = open("result.txt", 'a')
-            f.write(setting + "  \n")
-            f.write('mse_{forecast_x}:{}, mae_{forecast_x}:{}'.format(mse, mae))
-            f.write('\n')
-            f.write('\n')
-            f.close()
+        preds_len = len(preds)
+        trues_len = len(trues)
+
+        with open("result.txt", 'a') as f:
+            for forecast_x in (24, 96, 192, 336, 720):
+                if forecast_x > preds_len or forecast_x > trues_len:
+                    print(f'Warning: forecast_x ({forecast_x}) exceeds the length of preds ({preds_len}) or trues ({trues_len})')
+                    continue
+
+                mae, mse, rmse, mape, mspe, rse, corr = metric(preds, trues)
+                mae, mse, rmse, mape, mspe, rse, corr = metric(preds[:forecast_x], trues[:forecast_x])
+        
+                print(f'mse_{forecast_x}: {mse}, mae_{forecast_x}: {mae}')
+                f.write(setting + "\n")
+                f.write(f'mse_{forecast_x}: {mse}, mae_{forecast_x}: {mae}')
+                f.write('\n\n')
 
         # np.save(folder_path + 'metrics.npy', np.array([mae, mse, rmse, mape, mspe,rse, corr]))
         np.save(folder_path + 'pred.npy', preds)
