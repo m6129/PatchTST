@@ -307,7 +307,6 @@ class Exp_Main(Exp_Basic):
                     print(f'Warning: forecast_x ({forecast_x}) exceeds the length of preds ({preds_len}) or trues ({trues_len})')
                     continue
 
-                mae, mse, rmse, mape, mspe, rse, corr = metric(preds, trues)
                 mae, mse, rmse, mape, mspe, rse, corr = metric(preds[:forecast_x], trues[:forecast_x])
         
                 print(f'mse_{forecast_x}: {mse}, mae_{forecast_x}: {mae}')
