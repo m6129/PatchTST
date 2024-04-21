@@ -19,7 +19,7 @@ model_id_name=illness
 data_name=custom
 
 random_seed=2021
-for pred_len in 24 36 48 60
+for pred_len in 60
 do
     python -u run_longExp.py \
       --random_seed $random_seed \
