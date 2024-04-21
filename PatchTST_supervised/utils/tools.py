@@ -2,7 +2,6 @@ import numpy as np
 import torch
 import matplotlib.pyplot as plt
 import time
-from sktime.utils.plotting import plot_series
 
 plt.switch_backend('agg')
 
