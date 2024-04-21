@@ -19,7 +19,7 @@ model_id_name=ETTm1
 data_name=ETTm1
 
 random_seed=2021
-for pred_len in 24 96 192 336 720
+for pred_len in 720
 do
     python -u run_longExp.py \
       --random_seed $random_seed \
