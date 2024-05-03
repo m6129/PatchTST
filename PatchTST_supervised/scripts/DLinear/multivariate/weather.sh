@@ -13,6 +13,20 @@ python -u run_longExp.py \
   --is_training 1 \
   --root_path ./dataset/ \
   --data_path weather.csv \
+  --model_id weather_$seq_len'_'24 \
+  --model $model_name \
+  --data custom \
+  --features M \
+  --seq_len $seq_len \
+  --pred_len 24 \
+  --enc_in 21 \
+  --des 'Exp' \
+  --itr 1 --batch_size 16  >logs/LongForecasting/$model_name'_'Weather_$seq_len'_'24.log
+
+python -u run_longExp.py \
+  --is_training 1 \
+  --root_path ./dataset/ \
+  --data_path weather.csv \
   --model_id weather_$seq_len'_'96 \
   --model $model_name \
   --data custom \
