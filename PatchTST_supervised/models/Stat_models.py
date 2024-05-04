@@ -63,12 +63,12 @@ def _sarima(season,seq,pred_len,bt,i):
     forecasts = model.predict(pred_len) 
     return forecasts,bt,i
 
-class SArima(nn.Module):
+class Model(nn.Module): #была Sarima
     """
     Extremely extremely slow, please sample < 0.01
     """
     def __init__(self, configs):
-        super(SArima, self).__init__()
+        super(Model, self).__init__()
         self.pred_len = configs.pred_len
         self.seq_len = configs.seq_len
         self.season = 24
