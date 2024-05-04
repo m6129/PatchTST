@@ -9,7 +9,7 @@ fi
 if [ ! -d "./logs/LongForecasting/univariate" ]; then
     mkdir ./logs/LongForecasting/univariate
 fi
-model_name=NeuralProphet
+model_name=NeuralProphet1
 
 # ETTh1, univariate results, pred_len= 24 48 96 192 336 720
 python -u run_longExp.py \

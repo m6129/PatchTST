@@ -14,11 +14,10 @@ class Model(nn.Module):
         self.pred_len = configs.pred_len
 
         m = NeuralProphet(n_forecasts=self.pred_len)
-        m.fit(df=self.seq_len, metrics=['MAE','MSE'])
-        
+        #m.fit(df=self.seq_len, metrics=['MAE','MSE'])
         
 
     def forward(self, x):
-        future = m.make_future_dataframe(df=self.seq_len, n_historic_predictions=False, periods=self.pred_len)
-        x = m.predict(future)
+        
+        x = m.fit(df=self.seq_len, metrics=['MAE','MSE'])
         return x # [Batch, Output length, Channel]
