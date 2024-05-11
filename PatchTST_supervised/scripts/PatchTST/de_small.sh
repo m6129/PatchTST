@@ -29,10 +29,10 @@ do
       --model_id $model_id_name_$seq_len'_'$pred_len \
       --model $model_name \
       --data $data_name \
-      --features S \
+      --features M \
       --seq_len $seq_len \
       --pred_len $pred_len \
-      --enc_in 1 \
+      --enc_in 7 \
       --e_layers 3 \
       --n_heads 16 \
       --d_model 128 \
